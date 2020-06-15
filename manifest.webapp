@@ -1,0 +1,22 @@
+{
+  "name": "Sail",
+  "description": "Tools for sailing",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/img/logo-512.png",
+    "128": "/img/logo-128.png"
+  },
+  "developer": {
+    "name": "Lionel Koenig",
+    "url": "http://your-homepage-here.org"
+  },
+  "default_locale": "en",
+  "permissions": {
+    "geolocation": {
+      "description": "Used to use the GPS"
+    },
+    "alarms": {
+      "description": "Required to schedule notifications"
+    }
+  }
+}

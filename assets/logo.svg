@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   style="fill: none;"
+   width="795px"
+   height="1200px"
+   id="svg889"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata895">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs893" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2556"
+     inkscape:window-height="1391"
+     id="namedview891"
+     showgrid="false"
+     inkscape:zoom="0.995"
+     inkscape:cx="397.5"
+     inkscape:cy="358.79397"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg889" />
+  <rect
+     y="52.163158"
+     x="83.982414"
+     height="496.2233"
+     width="461.58524"
+     id="rect1740"
+     style="fill:#0088aa;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <path
+     style="stroke-width: 15px; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(106, 106, 106); fill: none;"
+     d=""
+     id="path883" />
+  <path
+     style="stroke-width: 15px; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(74, 74, 74); fill: none;"
+     d=""
+     id="path885" />
+  <path
+     style="fill:none;stroke:#0a0a0a;stroke-width:15.2733px;stroke-linecap:round;stroke-linejoin:round"
+     d="m 316.08444,120.82052 v 0 240 H 160.56976 Z m 31.10294,0 v 0 240 h 108.86027 c 0,-132.54834 -57.10053,-214.3169 -108.86027,-240 m 108.86027,270 v 0 H 160.56976 c 0,41.42135 14.02152,68.07082 46.6544,75 v 0 h 186.61762 c 40.32662,0 62.20587,-33.57864 62.20587,-75"
+     id="path887"
+     sodipodi:nodetypes="cccccccccccccccsc" />
+</svg>

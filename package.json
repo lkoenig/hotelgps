@@ -1,0 +1,26 @@
+{
+  "name": "sailgps",
+  "version": "1.0.0",
+  "description": "App to help sailing",
+  "private": true,
+  "author": "Lionel Koenig",
+  "license": "BSD",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "webpack-dev-server": "^3.11.0",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "browserslist": [
+    "kaios >2",
+    "firefox >75"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open",
+    "gdeploy": "gdeploy install dist"
+  }
+}
