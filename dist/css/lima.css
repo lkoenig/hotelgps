@@ -1,0 +1,23 @@
+body {
+    display: grid;
+}
+
+.instruments {
+    display: grid;
+    justify-items: center;
+    font-size: 28px;
+    font-family: Helvetica;
+}
+
+.instrument {
+    display: grid;
+    justify-items: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: silver;
+    padding: 5px 5px;
+}
+
+#time {
+    font-size: 20px;
+}
