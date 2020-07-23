@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <title>Test great circle distance</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div>
+    <p>Computed: <div id="computed"></div></p>
+  </div>
+  <script src="/great_circle.js" type="module"></script>
+  <script type="module">
+    "use strict";
+    import {distanceGreatCircle} from "/great_circle.js";
+    const lax = { coord: { latitude: 33 + 57 / 60, longitude: 118 + 24 / 60 } };
+    const jfk = { coord: { latitude: 40 + 38 / 60, longitude: 73 + 47 / 60 } };
+    const expected = 2164.6; // Nautical Miles
+    const d = distanceGreatCircle(lax, jfk);
+    const computed = document.getElementById("computed");
+    computed.innerHTML = d;
+  </script>
+</body>
+
+</html>

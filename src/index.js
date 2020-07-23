@@ -1,4 +1,7 @@
 "use strict";
+
+import {distanceGreatCircle} from "./great_circle.js";
+
 const GEOLOCATION_OPTIONS = {
   enableHighAccuracy: true,
   timeout: 0,
@@ -29,7 +32,7 @@ const formatLongitude = function (longitude) {
 
 const formatTime = function (time) {
   return `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()} ${time.getHours().toString().padStart(2, "0")}:${time.getMinutes().toString().padStart(2, "0")}:${time.getSeconds().toString().padStart(2, "0")}`
-}
+};
 
 class GpsApp {
   constructor() {
@@ -38,7 +41,9 @@ class GpsApp {
     this.time = document.getElementById('time');
 
     this.watch_id = null;
+    this.geolocation_error = true;
 
+    this.distance = 0;
     this.lastKnownPosition = null;
     this.manOverBoardPosition = null;
   }
@@ -46,14 +51,18 @@ class GpsApp {
   start() {
     this.watch_id = navigator.geolocation.watchPosition(
       function (position) {
+        if(lastKnownPosition != null) {
+          this.distance += distanceGreatCircle(this.lastKnownPosition, position);
+        }
         this.lastKnownPosition = position;
-        this.latitude.innerHTML = formatLatitude(position.coords.latitude);
-        this.longitude.innerHTML = formatLongitude(position.coords.longitude);
-        this.time.innerHTML = formatTime(new Date(position.timestamp));
+        this.geolocation_error = false;
+        this.updateView();
       }.bind(this),
       function (err) {
+        this.geolocation_error = true;
         console.log(err);
-      },
+        this.updateView();
+      }.bind(this),
       GEOLOCATION_OPTIONS
     );
   };
@@ -62,6 +71,15 @@ class GpsApp {
     if (this.watch_id != null) {
       navigator.geolocation.clearWatch(this.watch_id);
     }
+  };
+
+  updateView() {
+    if (this.lastKnownPosition == null) {
+      return;
+    }
+    this.latitude.innerHTML = formatLatitude(this.lastKnownPosition.coords.latitude);
+    this.longitude.innerHTML = formatLongitude(this.lastKnownPosition.coords.longitude);
+    this.time.innerHTML = formatTime(new Date(this.lastKnownPosition.timestamp));
   };
 
 };
