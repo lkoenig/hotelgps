@@ -1,5 +1,6 @@
 "use strict";
-
+import './css/hotel.scss';
+import './css/softkey.scss';
 import {distanceGreatCircle} from "./great_circle.js";
 
 const GEOLOCATION_OPTIONS = {
@@ -36,9 +37,12 @@ const formatTime = function (time) {
 
 class GpsApp {
   constructor() {
-    this.latitude = document.getElementById('latitude');
-    this.longitude = document.getElementById('longitude');
-    this.time = document.getElementById('time');
+    this.pages = document.querySelectorAll('div.page');
+    this.selected = 0;
+    this.pages[0].classList.add('visible');
+    this.latitude = document.querySelector('#latitude');
+    this.longitude = document.querySelector('#longitude');
+    this.time = document.querySelector('#time');
 
     this.watch_id = null;
     this.geolocation_error = true;
@@ -73,6 +77,34 @@ class GpsApp {
     }
   };
 
+  keydown(event) {
+    console.log(event);
+    switch (event.key ) {
+      case "ArrowRight": 
+      {
+        const currentPage = this.pages[this.selected];
+        currentPage.classList.remove('visible');
+        this.selected = (this.selected + 1) % this.pages.length;
+        const nextPage = this.pages[this.selected];
+        nextPage.classList.add('visible');
+        return;
+      }
+      case "ArrowLeft": 
+      {
+        const currentPage = this.pages[this.selected];
+        currentPage.classList.remove('visible');
+        if(this.selected == 0) {
+          this.selected = this.pages.length - 1;  
+        } else {
+          this.selected = (this.selected - 1) % this.pages.length;
+        }
+        const nextPage = this.pages[this.selected];
+        nextPage.classList.add('visible');
+        return;
+      }
+    }
+  }
+
   updateView() {
     if (this.lastKnownPosition == null) {
       return;
@@ -87,3 +119,6 @@ class GpsApp {
 
 const app = new GpsApp();
 app.start();
+document.addEventListener("keydown", event => {
+  app.keydown(event);
+});
