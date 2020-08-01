@@ -51,7 +51,7 @@ class GpsApp {
   start() {
     this.watch_id = navigator.geolocation.watchPosition(
       function (position) {
-        if(lastKnownPosition != null) {
+        if(this.lastKnownPosition != null) {
           this.distance += distanceGreatCircle(this.lastKnownPosition, position);
         }
         this.lastKnownPosition = position;

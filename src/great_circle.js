@@ -15,10 +15,10 @@ const distRadianToNauticalMiles = function (x) {
 
 // According to http://edwilliams.org/avform.htm#Dist
 const distanceGreatCircle = function (a, b) {
-  let lat_a = degToRad(a.coord.latitude);
-  let lat_b = degToRad(b.coord.latitude);
-  let lon_a = degToRad(a.coord.longitude);
-  let lon_b = degToRad(b.coord.longitude);
+  let lat_a = degToRad(a.coords.latitude);
+  let lat_b = degToRad(b.coords.latitude);
+  let lon_a = degToRad(a.coords.longitude);
+  let lon_b = degToRad(b.coords.longitude);
   // let d = Math.acos(Math.sin(lat_a) * Math.sin(lat_b) + Math.cos(lat_a) * Math.cos(lat_b) * Math.cos(lon_a - lon_b));
   let d = 2 * Math.asin(Math.sqrt(square(Math.sin((lat_a - lat_b) * 0.5)) +
     Math.cos(lat_a) * Math.cos(lat_b) * square(Math.sin((lon_a - lon_b) * 0.5))));

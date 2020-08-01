@@ -13,8 +13,8 @@
   <script type="module">
     "use strict";
     import {distanceGreatCircle} from "/great_circle.js";
-    const lax = { coord: { latitude: 33 + 57 / 60, longitude: 118 + 24 / 60 } };
-    const jfk = { coord: { latitude: 40 + 38 / 60, longitude: 73 + 47 / 60 } };
+    const lax = { coords: { latitude: 33 + 57 / 60, longitude: 118 + 24 / 60 } };
+    const jfk = { coords: { latitude: 40 + 38 / 60, longitude: 73 + 47 / 60 } };
     const expected = 2164.6; // Nautical Miles
     const d = distanceGreatCircle(lax, jfk);
     const computed = document.getElementById("computed");
