@@ -7,23 +7,30 @@ body {
     justify-items: center;
     font-size: 28px;
     font-family: Helvetica;
+    width: 100%;
+    text-align: center;
+
+    .instrument {
+        border-width: 1px;
+        border-style: solid;
+        border-color: silver;
+        padding: 5px 5px;
+        // width: 320px;
+        margin: 5px;
+    }
 }
 
-.instrument {
-    display: grid;
-    justify-items: center;
-    border-width: 1px;
-    border-style: solid;
-    border-color: silver;
-    padding: 5px 5px;
-}
 
 #time {
     font-size: 20px;
 }
+#accuracy {
+    font-size: 10px;
+}
 
-.page
-{
-    display:none;
-    &.visible { display:block; }
+.page {
+    display: none;
+    &.visible {
+        display: block;
+    }
 }
