@@ -5,7 +5,9 @@
   "private": true,
   "author": "Lionel Koenig",
   "license": "BSD",
-  "dependencies": {},
+  "dependencies": {
+    "ol": "^6.4.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
