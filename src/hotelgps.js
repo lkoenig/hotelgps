@@ -1,39 +1,14 @@
 import './css/hotel.scss';
 
 import { distanceGreatCircle } from "./great_circle.js";
-
-const formatDegree = function (degree) {
-  let d = Math.floor(degree);
-  let m = (degree - d);
-  return `${d}°${(m * 60).toFixed(3)}`;
-};
-
-const formatLatitude = function (latitude) {
-  if (latitude > 0) {
-    return `N ${formatDegree(latitude)}`;
-  } else {
-    return `S ${formatDegree(-latitude)}`;
-  }
-};
-
-const formatLongitude = function (longitude) {
-  if (longitude > 0) {
-    return "E " + formatDegree(longitude);
-  } else {
-    return "W " + formatDegree(-longitude);
-  }
-};
-
-const formatTime = function (time) {
-  return `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()} ${time.getHours().toString().padStart(2, "0")}:${time.getMinutes().toString().padStart(2, "0")}:${time.getSeconds().toString().padStart(2, "0")}`
-};
-
+import { PositionPane } from './position_pane.js';
 
 class HotelGps {
   constructor(options) {
     this.geolocationOptions = options.geolocationOptions;
 
     this.pages = document.querySelectorAll('div.page');
+    this.positionPane = new PositionPane(this.pages[0]);
 
     /**
      * @type integer
@@ -41,15 +16,6 @@ class HotelGps {
      */
     this.selected = 0;
     this.pages[this.selected].classList.add('visible');
-
-
-    this.latitude = document.querySelector('#latitude');
-    this.longitude = document.querySelector('#longitude');
-    this.time = document.querySelector('#time');
-    this.accuracy = document.querySelector('#accuracy');
-    this.sog = document.querySelector('#SOG');
-    this.cog = document.querySelector('#COG');
-    this.trip_distance = document.querySelector('#distance');
 
     this.watch_id = null;
 
@@ -110,18 +76,11 @@ class HotelGps {
   };
 
   keydown(event) {
-    // console.log(event);
+    // Usefull keys:
+    // case "ArrowRight":
+    // case "ArrowLeft":
     switch (event.key) {
-      case "ArrowRight":
-        {
-          const currentPage = this.pages[this.selected];
-          currentPage.classList.remove('visible');
-          this.selected = (this.selected + 1) % this.pages.length;
-          const nextPage = this.pages[this.selected];
-          nextPage.classList.add('visible');
-          return;
-        }
-      case "ArrowLeft":
+      case "1":
         {
           const currentPage = this.pages[this.selected];
           currentPage.classList.remove('visible');
@@ -134,22 +93,28 @@ class HotelGps {
           nextPage.classList.add('visible');
           return;
         }
+      case "3":
+        {
+          const currentPage = this.pages[this.selected];
+          currentPage.classList.remove('visible');
+          this.selected = (this.selected + 1) % this.pages.length;
+          const nextPage = this.pages[this.selected];
+          nextPage.classList.add('visible');
+          return;
+        }
     }
+    this.positionPane.keydown(event);
   }
 
   updateView() {
     if (this.lastKnownPosition == null) {
       return;
     }
-    this.latitude.innerHTML = formatLatitude(this.lastKnownPosition.coords.latitude);
-    this.longitude.innerHTML = formatLongitude(this.lastKnownPosition.coords.longitude);
-    this.time.innerHTML = formatTime(new Date(this.lastKnownPosition.timestamp));
-    this.accuracy.innerHTML = `Accuracy: ${this.lastKnownPosition.coords.accuracy.toFixed(1)} m`;
-    const heading = this.lastKnownPosition.coords.heading === null ? 'n/a' : this.lastKnownPosition.coords.heading.toFixed(0);
-    this.cog.innerHTML = `COG: ${heading} °`;
-    this.sog.innerHTML = `SOG: ${(this.lastKnownPosition.coords.speed * 3600 / 1852).toFixed(1)} Kn`;
-    this.trip_distance.innerHTML = `Trip: ${this.distance.toFixed(3)} NM`;
-
+    const info = {
+      position: this.lastKnownPosition,
+      distance: this.distance,
+    };
+    this.positionPane.updateView(info);
   };
 
 };
