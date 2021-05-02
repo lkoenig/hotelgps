@@ -1,0 +1,24 @@
+.instruments {
+  display: grid;
+  justify-items: center;
+  font-size: 28px;
+  font-family: Helvetica;
+  width: 100%;
+  text-align: center;
+
+  .instrument {
+    border-width: 1px;
+    border-style: solid;
+    border-color: silver;
+    padding: 5px 5px;
+    width: 100%;
+    margin: 5px;
+  }
+}
+
+#time {
+  font-size: 20px;
+}
+#accuracy {
+  font-size: 10px;
+}

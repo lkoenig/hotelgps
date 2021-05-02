@@ -1,5 +1,7 @@
 "use strict";
 
+import './css/position_pane.scss';
+
 const formatDegree = function (degree) {
   let d = Math.floor(degree);
   let m = (degree - d);
