@@ -6,9 +6,19 @@ import { PositionPane } from './position_pane.js';
 class HotelGps {
   constructor(options) {
     this.geolocationOptions = options.geolocationOptions;
-
     this.pages = document.querySelectorAll('div.page');
     this.positionPane = new PositionPane(this.pages[0]);
+    
+    this.current_theme = 0;
+    this.themes = [
+      'day',
+      'night',
+    ];
+    const this_time = new Date();
+    if(this_time.getHours() >= 18 || this_time.getHours() <= 7) {
+      this.current_theme = 1;
+    }
+    document.documentElement.setAttribute('data-theme', this.themes[this.current_theme]);
 
     /**
      * @type integer
@@ -101,6 +111,12 @@ class HotelGps {
           const nextPage = this.pages[this.selected];
           nextPage.classList.add('visible');
           return;
+        }
+      case "#":
+        {
+          this.current_theme = (this.current_theme + 1) % this.themes.length;
+          console.log("Switching to: " + this.themes[this.current_theme]);
+          document.documentElement.setAttribute('data-theme', this.themes[this.current_theme]);
         }
     }
     this.positionPane.keydown(event);

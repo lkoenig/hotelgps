@@ -1,10 +1,12 @@
+@import 'themes';
+
 #softkey {
     height: 30px;
     max-height: 30px;
     width: 100%;
     max-width: 100%;
-    background: white;
-    border-top: 2px #cbcbcb solid;
+    background: var(--bg-color);
+    border-top: 2px var(--border-color) solid;
     display: flex;
     flex-shrink: 0;
     white-space: nowrap;
@@ -21,7 +23,7 @@
   #right {
     font-weight: 600;
     font-size: 14px;
-    color: #242424;
+    color: var(--font-color);
     overflow: hidden;
     width: 100%;
     letter-spacing: -0.5px;
@@ -35,7 +37,7 @@
   }
   
   #center {
-    color: #242424;
+    color: var(--font-color);
     text-transform: uppercase;
     font-size: 18px;
     text-align: center;

@@ -1,0 +1,11 @@
+:root {
+  --font-color: #424242;
+  --bg-color: #fff;
+  --border-color: silver;
+}
+
+[data-theme="night"] {
+  --font-color: #552020;
+  --bg-color: #000;
+  --border-color: #272536;
+}

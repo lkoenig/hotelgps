@@ -1,3 +1,5 @@
+@import 'themes';
+
 .instruments {
   display: grid;
   justify-items: center;
@@ -7,18 +9,20 @@
   text-align: center;
 
   .instrument {
-    border-width: 1px;
+    border-width: 1px; 
     border-style: solid;
-    border-color: silver;
+    border-color: var(--border-color);
     padding: 5px 5px;
     width: 100%;
     margin: 5px;
+   
+    #time {
+      font-size: 20px;
+    }
+   
+    #accuracy {
+      font-size: 10px;
+    }
   }
 }
 
-#time {
-  font-size: 20px;
-}
-#accuracy {
-  font-size: 10px;
-}

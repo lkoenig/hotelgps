@@ -1,7 +1,12 @@
+@import 'themes';
+
+
 body {
+    background: var(--bg-color);
     display: grid;
     max-width: 100%;
     width: 100%;
+    color: var(--font-color);
 }
 
 .page {
