@@ -1,14 +1,14 @@
 {
-  "name": "Sail",
+  "name": "SignalHotel",
   "description": "Tools for sailing",
-  "launch_path": "/index.html",
+  "launch_path": "@ref(./index.html)",
   "icons": {
-    "512": "/img/logo-512.png",
-    "128": "/img/logo-128.png"
+    "512": "@ref(./img/logo-512.png)",
+    "128": "@ref(./img/logo-128.png)"
   },
   "developer": {
     "name": "Lionel Koenig",
-    "url": "http://your-homepage-here.org"
+    "url": "https://github.com/lkoenig/hotelgps"
   },
   "default_locale": "en",
   "permissions": {

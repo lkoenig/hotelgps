@@ -2,6 +2,9 @@
 import './css/softkey.scss';
 import { HotelGps } from './hotelgps.js';
 
+import './index.html'
+import './manifest.webapp';
+
 const GEOLOCATION_OPTIONS = {
   enableHighAccuracy: true,
   timeout: 0,
